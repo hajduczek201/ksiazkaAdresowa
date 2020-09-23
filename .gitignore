@@ -1,0 +1,7 @@
+*.dev
+*.exe
+*.win
+*.o
+*.layout
+*.txt
+ks-strukt.cpp
