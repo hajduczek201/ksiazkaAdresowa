@@ -12,14 +12,19 @@
 
 class PlikZAdresatami
 {
-	const string nazwaPlikuZAdresatami;
+	const string NAZWA_PLIKU_Z_ADRESATAMI;
+	int idOstatniegoAdresata;
 	
-	bool czyPlikJestPusty ();
+	void wczytajIdOstatniegoAdresata ();
+	
 	public:
-	PlikZAdresatami (string PLIK):nazwaPlikuZAdresatami(PLIK){};
+	PlikZAdresatami (string PLIK):NAZWA_PLIKU_Z_ADRESATAMI(PLIK)
+	{
+		wczytajIdOstatniegoAdresata	();
+	};
 	void dopiszAdresataDoPliku (Adresat adresat);
 	vector <Adresat> wczytajAdresatowZPliku (int nrZalogowanegoUzytkownika);
-	void dopiszAresataDoPliku();		
+	int pobierzIdOstatniegoAdresata	();
 };
 
 #endif

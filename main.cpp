@@ -8,7 +8,7 @@ int main()
 	KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt", "Adresaci.txt");
 	while (true)
 	{
-		if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() == 0)
+		if (!(ksiazkaAdresowa.czyUzytkownikJestZalogowany()))
 		{
 			char wybor = 0;
 			ksiazkaAdresowa.menuLogowania();
@@ -39,7 +39,7 @@ int main()
 			switch (wybor)
 			{
 				case '1':
-					ksiazkaAdresowa.dodajAdresata(ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika());
+					ksiazkaAdresowa.dodajAdresata();
 					break;
 				case '2':
 					ksiazkaAdresowa.wypiszWszystkichAdresatowDanegouzytkownika();

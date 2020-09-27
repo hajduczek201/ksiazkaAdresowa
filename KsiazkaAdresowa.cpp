@@ -12,30 +12,46 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 void KsiazkaAdresowa::logowanieUzytkownika()
 {
 	uzytkownikMenedzer.logowanieUzytkownika();
-	idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
-	adresatMenedzer.wczytajAdresatowZPliku(idZalogowanegoUzytkownika);
+	if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+	{
+		adresatMenedzer = new AdresatMenedzer (NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+	}
+	//idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+	
 }
-int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
+/*int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
 {
 	return idZalogowanegoUzytkownika;
-}
+}*/
 void KsiazkaAdresowa::wylogujUzytkownika()
 {
 	uzytkownikMenedzer.wylogujUzytkownika();
-	adresatMenedzer.wylogujUzytkownika();
-	idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+	delete adresatMenedzer;
+	adresatMenedzer = NULL;
 }
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 {
 	uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
 }
-void KsiazkaAdresowa::dodajAdresata(int idZalogowanegoUzytkownika)
+void KsiazkaAdresowa::dodajAdresata()
 {
-	adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
+	if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+	{
+		adresatMenedzer->dodajAdresata();
+	}
+	else 
+		cout << "Najpierw sie zaloguj!!!" << endl;
+}
+bool KsiazkaAdresowa::czyUzytkownikJestZalogowany()
+{
+	if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+		return true;
+	else
+		return false;
 }
 void KsiazkaAdresowa::wypiszWszystkichAdresatowDanegouzytkownika()
 {
-	adresatMenedzer.wypiszWszystkichAdresatow();
+	adresatMenedzer->wypiszWszystkichAdresatow();
 }
 void KsiazkaAdresowa::menuLogowania()
 {

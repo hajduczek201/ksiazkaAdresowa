@@ -59,10 +59,7 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow()
 			cout << endl;
 	}
 }
-void UzytkownikMenedzer::wczytajUzytkownikowZPliku()
-{
-	uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
-}
+
 void UzytkownikMenedzer::logowanieUzytkownika()
 {
     Uzytkownik uzytkownik;
@@ -102,6 +99,13 @@ void UzytkownikMenedzer::logowanieUzytkownika()
 void UzytkownikMenedzer::wylogujUzytkownika ()
 {
 	idZalogowanegoUzytkownika = 0;
+}
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany()
+{
+	if (idZalogowanegoUzytkownika > 0)
+		return true;
+	else
+	return false;
 }
 int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()
 {

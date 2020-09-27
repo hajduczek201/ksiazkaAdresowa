@@ -17,6 +17,17 @@ class Adresat
 	void ustawEmail(string EMAIL);
 	void ustawAdres(string ADRES);
 	
+	Adresat (int id = 0, int idUzytkownika = 0, string imie = "", string nazwisko = "", string numerTelefonu = "", string email = "", string adres = "")
+	{
+		this -> id = id;
+		this -> idUzytkownika = idUzytkownika;
+		this -> imie = imie;
+		this -> nazwisko = nazwisko;
+		this -> numerTelefonu = numerTelefonu;
+		this -> email = email;
+		this -> adres = adres;
+		
+	}
 	int pobierzID();
 	int pobierIdUzytkownika();
 	string pobierzImie();
