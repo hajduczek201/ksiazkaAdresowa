@@ -5,7 +5,7 @@ void AdresatMenedzer::dodajAdresata()
 {
 	Adresat adresat;
 	adresat = podajDaneNowegoAdresata();
-	plikZAdresatami.dopiszAdresataDoPliku(adresat);
+	plikZAdresatami.dopiszAdresataDoPliku(adresat, plikZAdresatami.pobierzNazwePlikuZAdresatami());
 	adresaci.push_back(adresat);
 }
 Adresat AdresatMenedzer::podajDaneNowegoAdresata()
@@ -31,18 +31,23 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata()
 	adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 	return adresat;
 }
-
+bool AdresatMenedzer::zaakceptujUsuniecieBadzModyfikacje(Adresat adresat)
+{
+	adresat.wypiszDaneAdresata();
+	char odp;
+	cout << "Czy na pewno chcesz usunac/zmodyfikowac? t/n" << endl;
+	cin >> odp;
+	cin.ignore(256, '\n');
+	if (odp == 't' || odp == 'T')
+		return true;
+	else
+		return false;
+}
 void AdresatMenedzer::wypiszWszystkichAdresatow()
 {
 	for (int i = 0; i < adresaci.size(); i++ )
 	{
-		cout << adresaci[i].pobierzID() << endl;
-		cout << adresaci[i].pobierIdUzytkownika() << endl;
-		cout << adresaci[i].pobierzImie() << endl;
-		cout << adresaci[i].pobierzNazwisko() << endl;
-		cout << adresaci[i].pobierzNrTelefonu() << endl;
-		cout << adresaci[i].pobierzEmail() << endl;
-		cout << adresaci[i].pobierzAdres() << endl;
+		adresaci[i].wypiszDaneAdresata();
 	}
 	system("pause");
 }
@@ -96,4 +101,37 @@ void AdresatMenedzer::wyszukajPoNazwisku()
 	}		
 	system ("pause");
 }
-
+void AdresatMenedzer::usunAdresata()
+{
+	int idDoUsuniecia;
+	cout << "Podaj ID Adresata do usuniecia: ";
+	cin >> idDoUsuniecia;
+	cin.ignore(256, '\n');
+	bool znaleziono = false;
+	for (int i = 0; i < adresaci.size(); i++)
+	{
+		if (adresaci[i].pobierzID() == idDoUsuniecia)
+		{
+			znaleziono = true;
+			if (zaakceptujUsuniecieBadzModyfikacje(adresaci[i]))
+			{
+				adresaci.erase(adresaci.begin() + i);
+				cout << "Rekord usuniety/zmodyfikowany" << endl;
+				if (idDoUsuniecia == plikZAdresatami.pobierzIdOstatniegoAdresata())
+				{
+					plikZAdresatami.odejmijJedenOdIdOstatniegoAdresata();
+				}
+				plikZAdresatami.przepiszPlikZAdresatami(ID_ZALOGOWANEGO_UZYTKOWNIKA,adresaci);
+				system ("pause");
+				return;	
+			}
+			else
+				return;
+		}
+		if (i + 1 == adresaci.size() && znaleziono == false)
+		{
+			cout << "W twojej ksiazce adresowej nie ma adresata o wskazanym ID " << endl;
+			system ("pause");
+		}
+	}
+}
