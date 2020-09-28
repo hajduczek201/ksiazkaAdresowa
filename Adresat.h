@@ -36,6 +36,7 @@ class Adresat
 	string pobierzEmail();
 	string pobierzAdres();
 	void wypiszDaneAdresata();
+	void zmodyfikujAdresata();
 	
 };
 
