@@ -69,6 +69,7 @@ void KsiazkaAdresowa::menuUzytkownika()
     cout << "3. Wyszukaj po imieniu" << endl;
     cout << "4. Wyszukaj po nazwisku" << endl;
     cout << "5. Usun adresata " << endl;
+    cout << "6. Zmodyfikuj dane adresata " << endl;
     cout << "8. Zmiana hasla" << endl;
     cout << "0. Wyloguj" << endl;
 }
@@ -83,4 +84,8 @@ void KsiazkaAdresowa::wyszukajPoNazwisku()
 void KsiazkaAdresowa::usunAdresata()
 {
 	adresatMenedzer->usunAdresata();
+}
+void KsiazkaAdresowa::zmodyfikujAdresata()
+{
+	adresatMenedzer->zmodyfikujAdresata();
 }

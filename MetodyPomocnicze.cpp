@@ -13,4 +13,16 @@ string MetodyPomocnicze::wczytajLinie()
     getline(cin, wejscie);
     return wejscie;
 }
+bool MetodyPomocnicze::czyKontynuowac()
+{
+	cout << "Czy chcesz kontynuowac? t/n" << endl;
+	char odp;
+	cin >> odp;
+	cin.ignore(256, '\n');
+	if (odp == 't' || odp == 'T')
+		return true;
+	else
+		return false;
+	
+}
 

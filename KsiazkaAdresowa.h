@@ -34,6 +34,7 @@ class KsiazkaAdresowa
 	void zmianaHaslaZalogowanegoUzytkownika();
 	void dodajAdresata();
 	void usunAdresata();
+	void zmodyfikujAdresata();
 	void wypiszWszystkichAdresatowDanegouzytkownika ();
 	void menuLogowania();
 	void menuUzytkownika();
