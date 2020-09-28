@@ -29,7 +29,8 @@ class KsiazkaAdresowa
 	void logowanieUzytkownika();
 	void wylogujUzytkownika();
 	bool czyUzytkownikJestZalogowany();
-//	int pobierzIdZalogowanegoUzytkownika();
+	void wyszukajPoImieniu();
+    void wyszukajPoNazwisku();
 	void zmianaHaslaZalogowanegoUzytkownika();
 	void dodajAdresata();
 	void wypiszWszystkichAdresatowDanegouzytkownika ();

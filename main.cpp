@@ -44,6 +44,12 @@ int main()
 				case '2':
 					ksiazkaAdresowa.wypiszWszystkichAdresatowDanegouzytkownika();
 					break;
+				case '3':
+					ksiazkaAdresowa.wyszukajPoImieniu();
+					break;
+				case '4':
+					ksiazkaAdresowa.wyszukajPoNazwisku();
+					break;
 				case '8':
 					ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
 					break;

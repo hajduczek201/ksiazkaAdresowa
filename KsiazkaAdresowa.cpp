@@ -16,13 +16,8 @@ void KsiazkaAdresowa::logowanieUzytkownika()
 	{
 		adresatMenedzer = new AdresatMenedzer (NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
 	}
-	//idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
-	
 }
-/*int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
-{
-	return idZalogowanegoUzytkownika;
-}*/
+
 void KsiazkaAdresowa::wylogujUzytkownika()
 {
 	uzytkownikMenedzer.wylogujUzytkownika();
@@ -71,7 +66,16 @@ void KsiazkaAdresowa::menuUzytkownika()
     cout << "---------------------------" << endl;
     cout << "1. Dodaj adresata" << endl;
     cout << "2. Wypisz adresatow" << endl;
+    cout << "3. Wyszukaj po imieniu" << endl;
+    cout << "4. Wyszukaj po nazwisku" << endl;
     cout << "8. Zmiana hasla" << endl;
     cout << "0. Wyloguj" << endl;
 }
-
+void KsiazkaAdresowa::wyszukajPoImieniu()
+{
+	adresatMenedzer->wyszukajPoImieniu();
+}
+void KsiazkaAdresowa::wyszukajPoNazwisku()
+{
+	adresatMenedzer->wyszukajPoNazwisku();
+}
