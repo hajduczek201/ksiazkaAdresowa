@@ -35,6 +35,7 @@ class Adresat
 	string pobierzNrTelefonu();
 	string pobierzEmail();
 	string pobierzAdres();
+	void wypiszDaneAdresata();
 	
 };
 

@@ -56,3 +56,11 @@ string Adresat::pobierzAdres()
 {
 	return adres;
 }
+void Adresat::wypiszDaneAdresata()
+{
+	cout << pobierzID() << endl;
+	cout << pobierzImie() << endl;
+	cout << pobierzNazwisko() << endl;
+	cout << pobierzEmail() << endl;
+	cout << pobierzAdres() << endl;	
+}

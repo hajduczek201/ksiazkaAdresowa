@@ -50,3 +50,50 @@ void AdresatMenedzer::wylogujUzytkownika()
 {
 	adresaci.clear();
 }
+void AdresatMenedzer::wyszukajPoImieniu()
+{
+	string imieDoZnalezienia;
+	bool czyZnaleziono = false;
+	cout << "Podaj imie do wyszukania: ";
+	getline (cin, imieDoZnalezienia);
+	
+	for (int i = 0; i < adresaci.size(); i++)
+	{
+		if (imieDoZnalezienia == adresaci[i].pobierzImie())
+		{
+			czyZnaleziono = true;
+			adresaci[i].wypiszDaneAdresata();
+		}
+		if (i+1 == adresaci.size() && czyZnaleziono == false)
+		{
+			cout << "Brak osob o tym imieniu!";
+			system ("pause");
+			return;
+		}
+	}		
+	system ("pause");
+}
+void AdresatMenedzer::wyszukajPoNazwisku()
+{
+	string nazwiskoDoZnalezienia;
+	bool czyZnaleziono = false;
+	cout << "Podaj imie do wyszukania: ";
+	getline (cin, nazwiskoDoZnalezienia);
+	
+	for (int i = 0; i < adresaci.size(); i++)
+	{
+		if (nazwiskoDoZnalezienia == adresaci[i].pobierzNazwisko())
+		{
+			czyZnaleziono = true;
+			adresaci[i].wypiszDaneAdresata();
+		}
+		if (i+1 == adresaci.size() && czyZnaleziono == false)
+		{
+			cout << "Brak osob o tym nazwisku!";
+			system ("pause");
+			return;
+		}
+	}		
+	system ("pause");
+}
+

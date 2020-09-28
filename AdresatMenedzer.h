@@ -31,6 +31,8 @@ class AdresatMenedzer
     void dodajAdresata();
     void wypiszWszystkichAdresatow();
     void wylogujUzytkownika();
+    void wyszukajPoImieniu();
+    void wyszukajPoNazwisku ();
 };
 
 #endif
