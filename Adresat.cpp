@@ -59,8 +59,10 @@ string Adresat::pobierzAdres()
 void Adresat::wypiszDaneAdresata()
 {
 	cout << pobierzID() << endl;
+	cout << pobierIdUzytkownika() << endl;
 	cout << pobierzImie() << endl;
 	cout << pobierzNazwisko() << endl;
+	cout << pobierzNrTelefonu() << endl;
 	cout << pobierzEmail() << endl;
 	cout << pobierzAdres() << endl;	
 }

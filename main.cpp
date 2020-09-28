@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt", "Adresaci.txt");
+	KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt", "Adresaci.txt", "AdresaciTymczasowi.txt");
 	while (true)
 	{
 		if (!(ksiazkaAdresowa.czyUzytkownikJestZalogowany()))
@@ -50,6 +50,9 @@ int main()
 				case '4':
 					ksiazkaAdresowa.wyszukajPoNazwisku();
 					break;
+				case '5':
+					ksiazkaAdresowa.usunAdresata();
+					break;
 				case '8':
 					ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
 					break;
@@ -65,4 +68,13 @@ int main()
 		}
 	}
 	return 0;
+}
+
+#include "AdresatMenedzer.h"
+int _main()
+{
+	AdresatMenedzer adresatMen ("Adresaci.txt", "AdresaciTymczasowi.txt", 2);
+	adresatMen.wypiszWszystkichAdresatow();
+	adresatMen.usunAdresata();
+	adresatMen.wypiszWszystkichAdresatow();
 }

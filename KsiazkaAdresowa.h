@@ -12,10 +12,10 @@ class KsiazkaAdresowa
 	UzytkownikMenedzer uzytkownikMenedzer;
 	AdresatMenedzer *adresatMenedzer;
 	const string NAZWA_PLIKU_Z_ADRESATAMI;
-	
+	const string NAZWA_PLIKU_TYMCZASOWEGO;
 	public:
 	
-	KsiazkaAdresowa(string plik, string plik2):uzytkownikMenedzer(plik), NAZWA_PLIKU_Z_ADRESATAMI(plik2)
+	KsiazkaAdresowa(string plik, string plik2, string plik3):uzytkownikMenedzer(plik), NAZWA_PLIKU_Z_ADRESATAMI(plik2), NAZWA_PLIKU_TYMCZASOWEGO(plik3)
 	{
 		adresatMenedzer = NULL;
 	};
@@ -33,6 +33,7 @@ class KsiazkaAdresowa
     void wyszukajPoNazwisku();
 	void zmianaHaslaZalogowanegoUzytkownika();
 	void dodajAdresata();
+	void usunAdresata();
 	void wypiszWszystkichAdresatowDanegouzytkownika ();
 	void menuLogowania();
 	void menuUzytkownika();
